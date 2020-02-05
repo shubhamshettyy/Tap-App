@@ -67,7 +67,8 @@ def interest(request):
 def form2_post(request):
     if request.method == "POST":
         interest_list = request.POST.getlist('checkbox[]', '')
-        print(interest_list)
+        email = request.POST.get('email', "")
+        print(interest_list, email)
         interest = ""
         experience = ""
         for i in range(len(interest_list)):
@@ -75,7 +76,7 @@ def form2_post(request):
         print(interest)
         for i in range(1, 8):
             experience = experience + " " + request.POST.get("exp" + str(i))
-        experience_form = ExperienceForm(interest=interest, experience=experience)
+        experience_form = ExperienceForm(email=email, interest=interest, experience=experience)
         print(experience_form)
         experience_form.save()
         return render(request, 'failure.html')

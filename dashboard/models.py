@@ -17,6 +17,7 @@ class InterestForm(models.Model):
 
 class ExperienceForm(models.Model):
     interest = models.CharField(max_length=100)
+    email = models.CharField(max_length=100,default='example@example.com')
     experience = models.CharField(max_length=100)
     grade = models.CharField(max_length=2, default="#")
     shortlisted = models.BooleanField(default=False)
