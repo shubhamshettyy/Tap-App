@@ -28,6 +28,9 @@ urlpatterns = [
     path('register/', adminusers_views.register, name="register"),
     path('home/', dashboard_views.home, name="index"),
     path('interest/', dashboard_views.interest, name="interest"),
+    #path('sk-validation/', dashboard_views.sk_validation, name="sk-validation"),
+    path('experience/', dashboard_views.experience, name="experience"),
+    path('experience/post', dashboard_views.form2_post, name="form2-post"),
 ]
 
 if settings.DEBUG:

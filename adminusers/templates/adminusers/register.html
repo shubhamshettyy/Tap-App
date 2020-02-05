@@ -1,22 +1,35 @@
 {% extends 'adminusers/base.html'%}
 {% load crispy_forms_tags %}
 {% block content %}
-		<div class="content-section">
-	        <form method="POST">
-	            {% csrf_token %}
-	            <fieldset class="form-group">
-	                <legend class="border-bottom mb-4">Join Today</legend>
-	                {{ form|crispy }}
-	            </fieldset>
-	            <div class="form-group">
-	                <button class="btn btn-outline-info" type="submit">Sign Up</button>
-	            </div>
-	        </form>
-	        <div class="border-top pt-3">
-	            <small class="text-muted">
-	                Already Have An Account? <a class="ml-2" href="{% url 'login' %}">Sign In</a>
-	            </small>
-	        </div>
-	    </div>
 
-{% endblock %}	 
+<div class="container">
+<div class="card col-md-6 offset-md-3 shadow p-3 mb-5 bg-white rounded" style="background-image: linear-gradient(to bottom,#F2F2F2,#DBDBDB);">
+  <div class="card-body">
+   
+ 
+<div class="content-section">
+       <form method="POST">
+           {% csrf_token %}
+           <legend class="mb-4" align="center" style="font-family: 'Comfortaa', cursive;font-size: 40px;background: -webkit-linear-gradient(#232526, #414345);
+-webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;">Join Today</legend>
+  <hr style="border-width: 3px;">
+           <fieldset class="form-group" style="max-width: 700px">
+               {{ form|crispy }}
+           </fieldset>
+           <div class="form-group">
+               <button class="btn btn-outline-primary btn-block" type="submit">Sign Up</button>
+           </div>
+       </form>
+       <div class="border-top pt-3">
+           <small class="text-muted">
+               Already Have An Account? <a class="ml-2" href="{% url 'login' %}">Sign In</a>
+           </small>
+       </div>
+   </div>
+</div>
+</div>
+</div>
+
+{% endblock %}

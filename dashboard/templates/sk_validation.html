@@ -1,0 +1,28 @@
+{% extends 'adminusers/base.html'%}
+{% load crispy_forms_tags %}
+{% block content %}
+	
+	<form method="POST">
+		{% csrf_token %}
+		<div class="col-md-6 offset-md-3">
+            <div class="card">
+            <div class="card-header">
+                <strong>Secret Key Validation</strong>
+            </div>
+            <div class="card-body card-block">
+                <div class="form-group">
+                    <label for="sk" class=" form-control-label">Secret Key</label>
+                    <input type="text" id="sk" name="sk" placeholder="Enter your Secret Key" class="form-control">
+                </div>
+            </div>
+            <div>
+            	<!-- <button class="au-btn au-btn-icon au-btn--blue mb-4 mr-4" style="float: right">
+                                    <i class="zmdi zmdi-plus"></i>Submit
+                </button> -->
+                <button class="au-btn au-btn-icon au-btn--blue mb-4 mr-4" type="submit" style="float: right">Verify</button>
+            </div>
+        </div>
+    </div>
+	</form>
+
+{% endblock %}	

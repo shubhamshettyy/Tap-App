@@ -1,0 +1,153 @@
+{% extends 'adminusers/base.html'%}
+{% load crispy_forms_tags %}
+{% block content %}
+	
+	<form method="POST" action="{% url 'form2-post' %}">
+		{% csrf_token %}
+		<div class="col-md-6 offset-md-3">
+            <div class="card">
+            <div class="card-header">
+                <strong>Experience Form</strong>
+            </div>
+            <div class="card-body card-block">
+                <div class="form-group">
+                    <label for="name" class=" form-control-label">Name</label>
+                    <input type="text" readonly="" id="name" name="name" value="{{ object.name }}" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="email" class=" form-control-label">Email</label>
+                    <input type="text" readonly="" id="email" name="email" value="{{ object.email }}" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="phno" class=" form-control-label">Phone Number</label>
+                    <input type="text" readonly="" id="phno" name="phno" value="{{ object.phone_number }}" class="form-control">
+                </div>
+                <div class="row form-group">
+                    <div class="col-8">
+                        <div class="form-group">
+                            <label for="city" class=" form-control-label">City</label>
+                            <input type="text" readonly="" id="city" name="city" value="{{ object.city }}" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <div class="form-group">
+                            <label for="postal-code" class=" form-control-label">Pincode</label>
+                            <input type="text" readonly="" name="pincode" id="pincode" value="{{ object.pincode }}" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label class=" form-control-label">Interests:</label>
+                    </div>
+                    <div class="col col-md-9">
+                        <div class="form-check">
+                            <div class="checkbox">
+                                <label for="checkbox1" class="form-check-label ">
+                                    <input type="checkbox" id="checkbox1" name="checkbox[]" onclick="myFunction(this.id)" value="Drama" class="form-check-input">Drama
+                                </label>
+                                <div class="col-8" id="divcheckbox1" style="display: none">
+                                    <div class="form-group">
+                                        <label for="exp1" class=" form-control-label">Experience for Drama</label>
+                                        <input type="text" name="exp1" id="exp1" placeholder="In years" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="checkbox">
+                                <label for="checkbox2" class="form-check-label ">
+                                    <input type="checkbox" id="checkbox2" name="checkbox[]" onclick="myFunction(this.id)" value="Dance" class="form-check-input"> Dance
+                                </label>
+                                <div class="col-8" id="divcheckbox2" style="display: none">
+                                    <div class="form-group">
+                                        <label for="exp2" class=" form-control-label">Experience for Dance</label>
+                                        <input type="text" name="exp2" id="exp2" placeholder="In years" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="checkbox">
+                                <label for="checkbox3" class="form-check-label ">
+                                    <input type="checkbox" id="checkbox3" name="checkbox[]" onclick="myFunction(this.id)" value="Music" class="form-check-input"> Music
+                                </label>
+                                <div class="col-8" id="divcheckbox3" style="display: none">
+                                    <div class="form-group">
+                                        <label for="exp3" class=" form-control-label">Experience for Music</label>
+                                        <input type="text" name="exp3" id="exp3" placeholder="In years" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="checkbox">
+                                <label for="checkbox4" class="form-check-label ">
+                                    <input type="checkbox" id="checkbox4" name="checkbox[]" onclick="myFunction(this.id)" value="PublicSpeaking" class="form-check-input">Public Speaking
+                                </label>
+                                <div class="col-8" id="divcheckbox4" style="display: none">
+                                    <div class="form-group">
+                                        <label for="exp4" class=" form-control-label">Experience for Public Speaking</label>
+                                        <input type="text" name="exp4" id="exp4" placeholder="In years" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="checkbox">
+                                <label for="checkbox5" class="form-check-label ">
+                                    <input type="checkbox" id="checkbox5" name="checkbox[]" onclick="myFunction(this.id)" value="UltimateFrisbee" class="form-check-input">Ultimate Frisbee
+                                </label>
+                                <div class="col-8" id="divcheckbox5" style="display: none">
+                                    <div class="form-group">
+                                        <label for="exp5" class=" form-control-label">Experience for Ultimate Frisbee</label>
+                                        <input type="text" name="exp5" id="exp5" placeholder="In years" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="checkbox">
+                                <label for="checkbox6" class="form-check-label ">
+                                    <input type="checkbox" id="checkbox6" name="checkbox[]" onclick="myFunction(this.id)" value="Electronics&Coding" class="form-check-input">Electronics & Coding
+                                </label>
+                                <div class="col-8" id="divcheckbox6" style="display: none">
+                                    <div class="form-group">
+                                        <label for="exp6" class=" form-control-label">Experience for Electronics & Coding</label>
+                                        <input type="text" name="exp6" id="exp6" placeholder="In years" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="checkbox">
+                                <label for="checkbox7" class="form-check-label ">
+                                    <input type="checkbox" id="checkbox7" name="checkbox[]" onclick="myFunction(this.id)" value="VisualArts" class="form-check-input">Visual Arts
+                                </label>
+                                <div class="col-8" id="divcheckbox7" style="display: none">
+                                    <div class="form-group">
+                                        <label for="exp7" class=" form-control-label">Experience for Visual Arts</label>
+                                        <input type="text" name="exp7" id="exp7" placeholder="In years" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+            <div>
+            	<!-- <button class="au-btn au-btn-icon au-btn--blue mb-4 mr-4" style="float: right">
+                                    <i class="zmdi zmdi-plus"></i>Submit
+                </button> -->
+                <button class="au-btn au-btn-icon au-btn--blue mb-4 mr-4" type="submit" style="float: right">Submit</button>
+            </div>
+        </div>
+    </div>
+	</form>
+
+    <script type="text/javascript">
+        function myFunction(id) {
+            console.log(id)
+          var y = document.getElementById(id)
+          var x = document.getElementById("div"+id);
+          console.log(x,y)
+          if(y.checked==true) {
+            x.style.display = "block";
+          } else {
+            x.style.display = "none";
+          }
+        } 
+    </script>
+
+{% endblock %}	
