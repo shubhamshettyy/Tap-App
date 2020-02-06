@@ -26,11 +26,18 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name='adminusers/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='adminusers/logout.html'), name='logout'),
     path('register/', adminusers_views.register, name="register"),
-    path('home/', dashboard_views.home, name="index"),
+    path('dashboard/', dashboard_views.dashboard, name="dashboard"),
     path('interest/', dashboard_views.interest, name="interest"),
-    #path('sk-validation/', dashboard_views.sk_validation, name="sk-validation"),
+    path('dashboard/shortlist', dashboard_views.shortlist, name="shortlist"),
+    path('dashboard/phone_interview', dashboard_views.phone_interview, name="phone-interview"),
+    path('dashboard/phone_interview/<str:pk>', dashboard_views.phone_interview_detail, name="phone-interview-detail"),
+    path('induction/<str:pk>', dashboard_views.induction, name="induction-email"),
+    path('dashboard/shortlist/email', dashboard_views.shortlist_email, name="shortlist-email"),
+    path('dashboard/<str:pk>', dashboard_views.detailview, name="detail"),
     path('experience/', dashboard_views.experience, name="experience"),
     path('experience/post', dashboard_views.form2_post, name="form2-post"),
+    path('interview/<str:pk>', dashboard_views.interview_timing, name="interview-timing"),
+
 ]
 
 if settings.DEBUG:

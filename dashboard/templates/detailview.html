@@ -1,0 +1,105 @@
+{% extends 'adminusers/base.html'%}
+{% load crispy_forms_tags %}
+{% block content %}
+<section class="p-t-20">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="table-responsive table-responsive-data2">
+                                <table class="table table-data2">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>City</th>
+                                            <th>Pincode</th>
+                                            <th>Phone number</th>
+                                            <th>Grade</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+
+                                            <tr class="tr-shadow">
+                                                <td>{{ object.name }}</td>
+                                                <td>
+                                                    <span class="block-email">{{ object.email }}</span>
+                                                </td>
+                                                <td class="desc">{{ object.city }}</td>
+                                                <td>{{ object.pincode }}</td>
+                                                <td>
+                                                    <span class="status--process">{{ object.phone_number }}</span>
+                                                </td>
+                                                <td>
+                                                <!-- <div class="row form-group"> -->
+                                                <div class="col col-md-9">
+                                                    <form method="POST">
+                                                        {% csrf_token %}
+                                                    <div class="form-check-inline form-check">
+                                                        <label for="inline-radio1" class="form-check-label ">
+                                                            <input type="radio" id="inline-radio1" name="1" value="1" class="form-check-input">One
+                                                        </label>
+                                                        <label for="inline-radio2" class="form-check-label ">
+                                                            <input type="radio" id="inline-radio2" name="1" value="2" class="form-check-input">Two
+                                                        </label>
+                                                        <label for="inline-radio3" class="form-check-label ">
+                                                            <input type="radio" id="inline-radio3" name="1" value="3" class="form-check-input">Three
+                                                        </label>
+                                                        <label for="inline-radio2" class="form-check-label ">
+                                                            <input type="radio" id="inline-radio2" name="1" value="4" class="form-check-input">Four
+                                                        </label>
+                                                        <label for="inline-radio2" class="form-check-label ">
+                                                            <input type="radio" id="inline-radio2" name="1" value="5" class=" ml-2form-check-input">Five
+                                                        </label>
+
+                                                        <button type="submit" class="btn btn-primary btn-sm ml-4">
+                                                    Grade
+                                                </button>
+                                            </form>
+                                                    </div>
+
+
+                                                </div>
+                                                 
+
+                                            <!-- </div> -->
+                                                </td>
+                                            </tr>
+                                                   
+                                       
+                                    </tbody>
+                                </table>
+                                <div class="container ">
+                                    <strong><p style="font-size: 30px">Description</p></strong><hr>
+                                    <p class="article-content">{{ eobject.description}}</p>
+                                </div>
+                                <br>
+                                <div class="container ">
+                                    <strong><p style="font-size: 25px">Domains</p></strong><hr>
+                                    <p class="article-content">{{ eobject.interest }}</p>
+                                </div>
+
+
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- END DATA TABLE-->
+            <script type="text/javascript">
+                function myFunction(id) {
+                    console.log(id)
+                  var y = document.getElementById(id)
+                  var x = document.getElementById("div"+id);
+                  console.log(x,y)
+                  if(y.checked==true) {
+                    x.style.display = "block";
+                  } else {
+                    x.style.display = "none";
+                  }
+                }
+            </script>
+
+
+{% endblock %} 

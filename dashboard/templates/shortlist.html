@@ -27,12 +27,10 @@
                                         <button class="au-btn-filter ml-5" type="submit">
                                             <i class="zmdi zmdi-filter-list"></i>Apply</button>
                                         </form>
-                                </div>
-                                <div class="table-data__tool-right">
-
-                                    <button class="au-btn au-btn-icon au-btn--green au-btn--small">
-                                        <i class="zmdi"></i><a href="{% url 'shortlist' %}">Shortlisted Candidates</a></button>
-                                    
+                                        <button class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                        <i class="zmdi"></i><a style="color: white" href="{% url 'phone-interview' %}">Phone Timings and Grade</a></button>
+                                        <button class="au-btn au-btn-icon au-btn--green au-btn--small ml-5" style="float: right">
+                                        <i class="zmdi"></i><a style="color: white" href="{% url 'shortlist-email' %}">Send Acceptance and Rejection email</a></button>
                                 </div>
                             </div>
                             <div class="table-responsive table-responsive-data2">
@@ -52,8 +50,6 @@
                                             {% for interest in interests %}
 
                                                 {% if interest.email == experience.email %}
-
-
                                                     <tr class="tr-shadow">
                                                         <td><a href={% url 'detail' interest.email%}>{{ interest.name }}</a></td>
                                                         <td>

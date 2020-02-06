@@ -28,12 +28,6 @@
                                             <i class="zmdi zmdi-filter-list"></i>Apply</button>
                                         </form>
                                 </div>
-                                <div class="table-data__tool-right">
-
-                                    <button class="au-btn au-btn-icon au-btn--green au-btn--small">
-                                        <i class="zmdi"></i><a href="{% url 'shortlist' %}">Shortlisted Candidates</a></button>
-                                    
-                                </div>
                             </div>
                             <div class="table-responsive table-responsive-data2">
                                 <table class="table table-data2">
@@ -44,18 +38,20 @@
                                             <th>City</th>
                                             <th>Pincode</th>
                                             <th>Phone number</th>
-                                            <th>Grade</th>
+                                            <th>Grade 1</th>
+                                            <th>Confirmed Timings</th>
+                                            <th>Grade 2</th>
+                                            <th>Send Induction Email</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         {% for experience in experiences %}
                                             {% for interest in interests %}
+                                                {% for interview in interviews %}
 
-                                                {% if interest.email == experience.email %}
-
-
+                                                {% if interest.email == experience.email and interview.email == experience.email %}
                                                     <tr class="tr-shadow">
-                                                        <td><a href={% url 'detail' interest.email%}>{{ interest.name }}</a></td>
+                                                        <td><a href={% url 'phone-interview-detail' interest.email%}>{{ interest.name }}</a></td>
                                                         <td>
                                                             <span class="block-email">{{ interest.email }}</span>
                                                         </td>
@@ -67,9 +63,19 @@
                                                         <td>
                                                             {{ experience.grade }}
                                                         </td>
+                                                        <td>
+                                                            {{ interview.timing }}
+                                                        </td>
+                                                        <td>
+                                                            {{ interview.grade }}
+                                                        </td>
+                                                        <td>
+                                                            <button type="submit" class="btn btn-primary btn-sm ml-4"><a style="color: white" href="{% url 'induction-email' interview.email %}">Send Email</a></button>
+                                                        </td>
                                                     </tr>
                                                    
                                                 {% endif %}
+                                            {% endfor %}
                                             {% endfor %}
                                         {% endfor %}
                                        

@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 
@@ -16,8 +17,17 @@ class InterestForm(models.Model):
 
 
 class ExperienceForm(models.Model):
+    description = models.TextField(default="No Description")
     interest = models.CharField(max_length=100)
-    email = models.CharField(max_length=100,default='example@example.com')
+    email = models.CharField(max_length=100, default='example@example.com')
     experience = models.CharField(max_length=100)
-    grade = models.CharField(max_length=2, default="#")
+    grade = models.CharField(max_length=2, default="N/A")
     shortlisted = models.BooleanField(default=False)
+
+
+class PhoneInterview(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.CharField(max_length=100)
+    timing = models.CharField(max_length=100,default="Not Confirmed")
+    grade = models.CharField(max_length=2, default="N/A")
+    accepted = models.BooleanField(default=False)

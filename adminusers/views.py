@@ -3,7 +3,6 @@ from django.contrib import messages
 from .forms import UserRegisterForm
 
 
-
 # Create your views here.
 
 

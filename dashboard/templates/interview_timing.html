@@ -1,0 +1,41 @@
+{% extends 'adminusers/base.html'%}
+{% load crispy_forms_tags %}
+{% block content %}
+	
+	<form method="POST">
+		{% csrf_token %}
+		<div class="col-md-6 offset-md-3">
+            <div class="card">
+            <div class="card-header">
+                <strong>Phone Interview Timing</strong>
+            </div>
+            <div class="card-body card-block">
+                <div class="form-group">
+                    <label for="name" class=" form-control-label">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your Name" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="email" class=" form-control-label">Email</label>
+                    <input type="text" id="email" readonly="" name="email" value="{{email}}" class="form-control">
+                </div>
+                <div class="rs-select2--light rs-select2--md">                    
+                    <select class="js-select2 mr-5" name="time" >
+                        <option selected="selected" value="all">Timings</option>
+                        <option value="7am-9am">7am-9am</option>
+                        <option value="9am-11am">9am-11am</option>
+                        <option value="11am-1pm">11am-1pm</option>
+                    </select>
+                    <div class="dropDownSelect2"></div>
+                </div>
+            </div>
+            <div>
+            	<!-- <button class="au-btn au-btn-icon au-btn--blue mb-4 mr-4" style="float: right">
+                                    <i class="zmdi zmdi-plus"></i>Submit
+                </button> -->
+                <button class="au-btn au-btn-icon au-btn--blue mb-4 mr-4" type="submit" style="float: right">Verify</button>
+            </div>
+        </div>
+    </div>
+	</form>
+
+{% endblock %}	
